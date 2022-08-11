@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>SVG Anim</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body onclick="next_anim()" bgcolor="#000">
+        <div id="text"></div>
+        <svg viewBox = "0 0 1920 1080" version = "1.1">
+            <g id="svg" stroke-width = "1%" fill = "none" stroke-linecap="round"></g>
+        </svg>
+
+        <script src="index.js"></script>
+        <script src="anims.js"></script>
+        <script>
+            anim_idx=-2
+            svg=document.getElementById('svg')
+            text=document.getElementById('text')
+
+            function add_path(id){
+                path=document.createElementNS("http://www.w3.org/2000/svg", 'path')
+                path.id=id
+                path.setAttribute('stroke',colorSet)
+                svg.appendChild(path)
+            }
+
+            function next_anim(){
+                anim_idx+=1
+                i=0
+                if(anim_idx==-2){ //test scripts
+
+                }
+                if(anim_idx==-1){
+                    text.innerHTML="This animation is best viewed in 16:9 ratio, for the best experience, please ensure the border aligns with the edge of the screen. Click to continue"
+                    colorSet="#FF77A8"
+                    add_path('top')
+                    add_path('bottom')
+                    add_path('left')
+                    add_path('right')
+                }
+                if(anim_idx==0){
+                    svg.innerHTML=""
+                    text.innerHTML="There are many different genders"
+                    colorSet="#FF77A8"
+                    add_path('circ1')
+                    colorSet="#29ADFF"
+                    add_path('circ2')
+                    colorSet="#FFCCAA"
+                    add_path('circ3')
+                }
+                if(anim_idx==1){
+                    colorSet="#FF77A8"
+                    add_path('line11');add_path('line12')
+                    colorSet="#29ADFF"
+                    add_path('line21');add_path('line22');add_path('line23')
+                    colorSet="#FFCCAA"
+                    add_path('line31');add_path('line32');add_path('line33');add_path('line34');add_path('line35');add_path('line36');add_path('line37');add_path('line38');add_path('line39')
+
+                }
+                if(anim_idx==2){
+                    text.innerHTML="But they are not often seen as equal or the same by most people"
+                }
+
+                if(anim_idx==3){
+                    text.innerHTML="This can leave girls being excluded from predominantly male groups..."
+                    svg.innerHTML=""
+                    colorSet="#FF77A8"
+                    add_path('circ1');add_path('line11');add_path('line12')
+                    colorSet="#1D2B53"
+                    add_path('ffs')//forcefield shield
+                    colorSet="#29ADFF"
+                    add_path('m1c');add_path('m11');add_path('m12');add_path('m13')
+                    add_path('m2c');add_path('m21');add_path('m22');add_path('m23')
+                    add_path('m3c');add_path('m31');add_path('m32');add_path('m33')
+                    add_path('m4c');add_path('m41');add_path('m42');add_path('m43')
+                }
+
+                if(anim_idx==4){
+                    text.innerHTML="boys being excluded from predominantly female groups..."
+                    svg.innerHTML=""
+                    colorSet="#29ADFF"
+                    add_path('circ1');add_path('line11');add_path('line12');add_path('line13')
+                    colorSet="#7E2553"
+                    add_path('ffs')//forcefield shield
+                    colorSet="#FF77A8"
+                    add_path('f1c');add_path('f11');add_path('f12')
+                    add_path('f2c');add_path('f21');add_path('f22')
+                    add_path('f3c');add_path('f31');add_path('f32')
+                    add_path('f4c');add_path('f41');add_path('f42')
+                }
+
+                if(anim_idx==5){
+                    text.innerHTML="and people who don't fit into either group being excluded entirely"
+                    svg.innerHTML=""                    
+                    colorSet="#1D2B53"
+                    add_path('ffs')//forcefield shield
+
+                    colorSet="#7E2553"
+                    add_path('ffsf')
+
+                    colorSet="#29ADFF"
+                    add_path('m1c');add_path('m11');add_path('m12');add_path('m13')
+                    add_path('m2c');add_path('m21');add_path('m22');add_path('m23')
+                    add_path('m3c');add_path('m31');add_path('m32');add_path('m33')
+                    add_path('m4c');add_path('m41');add_path('m42');add_path('m43')
+                    
+                    colorSet="#FF77A8"
+                    add_path('f1c');add_path('f11');add_path('f12')
+                    add_path('f2c');add_path('f21');add_path('f22')
+                    add_path('f3c');add_path('f31');add_path('f32')
+                    add_path('f4c');add_path('f41');add_path('f42')
+                
+                    colorSet="#FFCCAA"
+                    add_path('circ3')
+                    add_path('line31');add_path('line32');add_path('line33');add_path('line34');add_path('line35');add_path('line36');add_path('line37');add_path('line38');add_path('line39')
+
+                }
+
+                if(anim_idx==6){
+                    text.innerHTML="So what can we do about this?"
+                    text.style="font-size:15vw"
+                    svg.innerHTML=""
+                }
+
+                if(anim_idx==7){
+                    text.style="font-size:5vw"
+
+                    text.innerHTML="We can open up and include everyone, regardless of their gender"
+                    svg.innerHTML=""                    
+                    colorSet="#1D2B53"
+                    add_path('ffs')//forcefield shield
+
+                    colorSet="#7E2553"
+                    add_path('ffsf')
+
+                    colorSet="#29ADFF"
+                    add_path('m1c');add_path('m11');add_path('m12');add_path('m13')
+                    add_path('m2c');add_path('m21');add_path('m22');add_path('m23')
+                    add_path('m3c');add_path('m31');add_path('m32');add_path('m33')
+                    add_path('m4c');add_path('m41');add_path('m42');add_path('m43')
+                    
+                    colorSet="#FF77A8"
+                    add_path('f1c');add_path('f11');add_path('f12')
+                    add_path('f2c');add_path('f21');add_path('f22')
+                    add_path('f3c');add_path('f31');add_path('f32')
+                    add_path('f4c');add_path('f41');add_path('f42')
+                
+                    colorSet="#FFCCAA"
+                    add_path('circ3')
+                    add_path('line31');add_path('line32');add_path('line33');add_path('line34');add_path('line35');add_path('line36');add_path('line37');add_path('line38');add_path('line39')
+
+                }
+            }
+            next_anim()
+            setInterval(function(){
+                i+=1
+
+                if(anim_idx==-2){test()}
+                if(anim_idx==-1){f_0()}
+                if(anim_idx==0){f_1(i,100,1920/4,360);if(i>=360){next_anim()}}
+                if(anim_idx==1){f_2(i,100,1920/4,360)}
+                if(anim_idx==2){f_3(i,100,1920/4,360)}
+                if(anim_idx==3){f_4(i,50,300,750)}
+                if(anim_idx==4){f_5(i,50,1920-300,750)}
+                if(anim_idx==5){f_6(i,50,300,750)}
+                if(anim_idx==7){f_6(i,50,300,750)}
+
+            },0)
+        </script>
+    </body>
+</html>

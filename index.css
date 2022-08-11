@@ -1,0 +1,19 @@
+body{
+    margin:0
+}
+
+#svg, #text{
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    color: white
+}
+
+#text{
+    margin-right:0;
+    margin-left:0;
+    font-size:5vw;
+    text-align: center;
+    z-index: -1;
+}
