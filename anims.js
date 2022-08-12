@@ -210,3 +210,56 @@ function f_6(rot,size,x,y){
     topp.line39.setAttribute('d',describeLine(x-size*1.73,y-size*1.73,90,size,false))
 
 }
+
+function f_7(rot,size,x,y){
+    topp=svg.children
+    thing=size*(2.5 - (0.75/(540/rot) ))
+
+    rot=rot/4+45
+    r=polarToCartesian(0,0,size,rot)
+
+    topp.circ.setAttribute('d',describeArc(x,y, size, 0, 360))
+    topp.l1.setAttribute('d',describeLine(x+r.x,y+r.y,rot,size*1.5,false))
+    r=polarToCartesian(0,0,thing,rot)
+    topp.l2.setAttribute('d',describeLine(x+r.x,y+r.y,rot+135-rot/4,(1-(rot/360))*size,false))
+    topp.l3.setAttribute('d',describeLine(x+r.x,y+r.y,rot+225+rot/4,(1-(rot/360))*size,false))
+
+    if(anim_idx==10){
+        x=960
+        y=220
+        size=0.7
+        topp.h1.setAttribute('d',describeLine(x,y+215*size,46,150*size,false))
+        topp.h2.setAttribute('d',describeLine(x,y+215*size,-46,150*size,false))
+        topp.h3.setAttribute('d',describeArc(x+50*size,y+80*size,65*size,-45,120))
+        topp.h4.setAttribute('d',describeArc(x-50*size,y+80*size,65*size,240,410))
+    }
+}
+
+function f_8(rot,size,x,y){
+    topp=svg.children
+    rot=mid(0,rot,360)
+offset=0
+    offset=Math.sin(rot/360)*260
+    r=polarToCartesian(0,0,size,rot)
+    
+    topp.circ.setAttribute('d',describeArc(x-offset,y,size,0,360))
+    topp.l1.setAttribute('d',describeLine(x-offset,y+size,180,size*1.5,false))
+    topp.l2.setAttribute('d',describeLine(x-offset,y+size*1.75,90,150,true))
+    topp.l3.setAttribute('d',describeLine(x-offset,y+size*1.75,90,150,true))
+   x=x+1500
+   
+   offset=Math.sin(rot/360)*1535
+    topp.gfc.setAttribute('d',describeArc(x-offset,y,size,0,360))
+    topp.gf1.setAttribute('d',describeLine(x-offset,y+size,180,size*1.5,false))
+    topp.gf2.setAttribute('d',describeLine(x-offset,y+size*1.75,90,150,true))
+
+    x=960
+    y=220+rot/4
+    size=0.7
+    topp.h1.setAttribute('d',describeLine(x,y+215*size,46,150*size,false))
+    topp.h2.setAttribute('d',describeLine(x,y+215*size,-46,150*size,false))
+    topp.h3.setAttribute('d',describeArc(x+50*size,y+80*size,65*size,-45,120))
+    topp.h4.setAttribute('d',describeArc(x-50*size,y+80*size,65*size,240,410))
+
+}
+

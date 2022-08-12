@@ -5,7 +5,9 @@
     </head>
     <body onclick="next_anim()" bgcolor="#000">
         <div id="text"></div>
-        <svg viewBox = "0 0 1920 1080" version = "1.1">
+        <div id="click2cont">Click to continue...</div>
+
+        <svg id="viewbox" viewBox = "0 0 1920 1080" version = "1.1">
             <g id="svg" stroke-width = "1%" fill = "none" stroke-linecap="round"></g>
         </svg>
 
@@ -16,6 +18,11 @@
             svg=document.getElementById('svg')
             text=document.getElementById('text')
 
+            function cp(i,maxf){
+                if(i>=maxf){
+                    document.getElementById("click2cont").style.color="white"
+                }
+            }
             function add_path(id){
                 path=document.createElementNS("http://www.w3.org/2000/svg", 'path')
                 path.id=id
@@ -24,13 +31,15 @@
             }
 
             function next_anim(){
+                if(anim_idx==12){return}
                 anim_idx+=1
                 i=0
+                document.getElementById("click2cont").style.color="#00000000"
                 if(anim_idx==-2){ //test scripts
 
                 }
                 if(anim_idx==-1){
-                    text.innerHTML="This animation is best viewed in 16:9 ratio, for the best experience, please ensure the border aligns with the edge of the screen (Pressing F11 should fix it on most screens). Click to go to the next slide"
+                    text.innerHTML="This animation is best viewed in 16:9 ratio, for the best experience, please ensure the border aligns with the edge of the screen."
                     colorSet="#FF77A8"
                     add_path('top')
                     add_path('bottom')
@@ -124,7 +133,7 @@
                 if(anim_idx==7){
                     text.style="font-size:5vw"
 
-                    text.innerHTML="We can open up and include everyone, regardless of their gender (this is the last slide at the moment)"
+                    text.innerHTML="We can open up and include everyone, regardless of their gender"
                     svg.innerHTML=""                    
                     colorSet="#1D2B53"
                     add_path('ffs')//forcefield shield
@@ -149,20 +158,65 @@
                     add_path('line31');add_path('line32');add_path('line33');add_path('line34');add_path('line35');add_path('line36');add_path('line37');add_path('line38');add_path('line39')
 
                 }
+
+                if(anim_idx==8){
+                    text.innerHTML="Acknowledge people no matter what their gender is, or what their gender used to be"
+                    svg.innerHTML=""
+                    colorSet="#29ADFF"
+                    add_path('circ');add_path('l1');add_path('l2');add_path('l3')
+                }
+
+                if(anim_idx==9){
+                    svg.innerHTML=""
+                    colorSet="#7E2553"
+                    add_path('circ');add_path('l1');add_path('l2');add_path('l3')
+                }
+
+                if(anim_idx==10){
+                    svg.innerHTML=""
+                    colorSet="#FF77A8"
+                    add_path('circ');add_path('l1');add_path('l2');add_path('l3')
+                    colorSet="#FF004D"
+
+                    add_path('h1');add_path('h2');add_path('h3');add_path('h4')
+                }
+
+                if(anim_idx==11){
+                    text.innerHTML="And accept them for their relationship preferences"
+                    colorSet="#FF77A8"
+                    add_path('gfc');add_path('gf1');add_path('gf2')
+                }
+
+                if(anim_idx==12){
+                    text.innerHTML="Together, we can all make the world a better place for people of all genders"
+                    text.style="font-size:7vw"
+                    svg.innerHTML=""
+                    document.getElementById("click2cont").innerHTML="The End"
+                }
             }
             next_anim()
             setInterval(function(){
+                if(Math.min(window.innerHeight/9,window.innerWidth/16)==window.innerWidth/16){
+                    svg.parentElement.style.width='100%'
+                }else{
+                    svg.parentElement.style.height='100%'
+                }
                 i+=1
-
                 if(anim_idx==-2){test()}
-                if(anim_idx==-1){f_0()}
+                if(anim_idx==-1){cp(i,600);f_0()}
                 if(anim_idx==0){f_1(i,100,1920/4,360);if(i>=360){next_anim()}}
-                if(anim_idx==1){f_2(i,100,1920/4,360)}
-                if(anim_idx==2){f_3(i,100,1920/4,360)}
-                if(anim_idx==3){f_4(i,50,300,750)}
-                if(anim_idx==4){f_5(i,50,1920-300,750)}
-                if(anim_idx==5){f_6(i,50,300,750)}
-                if(anim_idx==7){f_6(i,50,300,750)}
+                if(anim_idx==1){cp(i,600);f_2(i,100,1920/4,360)}
+                if(anim_idx==2){cp(i,600);f_3(i,100,1920/4,360)}
+                if(anim_idx==3){cp(i,1000);f_4(i,50,300,750)}
+                if(anim_idx==4){cp(i,1000);f_5(i,50,1920-300,750)}
+                if(anim_idx==5){cp(i,600);f_6(i,50,300,750)}
+                if(anim_idx==6){cp(i,300)}
+                if(anim_idx==7){cp(i,600);f_6(i,50,300,750)}
+                if(anim_idx==8){f_7(i,150,960,540);if(i>=270){next_anim()}}
+                if(anim_idx==9){f_7(i+270,150,960,540);if(i>=270){next_anim()}}
+                if(anim_idx==10){cp(i,300);f_7(270*2,150,960,540)}
+                if(anim_idx==11){cp(i,600);f_8(i,150,960,540)}
+                if(anim_idx==12){cp(i,600)}
 
             },0)
         </script>

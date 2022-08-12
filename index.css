@@ -1,5 +1,6 @@
 body{
-    margin:0
+    margin:0;
+
 }
 
 #svg, #text{
@@ -10,10 +11,32 @@ body{
     color: white
 }
 
-#text{
+#text, #click2cont{
     margin-right:0;
     margin-left:0;
     font-size:5vw;
     text-align: center;
     z-index: -1;
+}
+
+#viewbox{
+    position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+
+}
+
+
+
+#click2cont{
+    position: absolute;
+    left: 50%;
+    height: 3vw;
+    font-size:3vw;
+
+transform: translate(-50%, -50%);
+        bottom: 0;
+    color: white
+
 }
